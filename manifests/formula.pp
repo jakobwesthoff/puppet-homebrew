@@ -16,7 +16,7 @@ define homebrew::formula($source = undef) {
     'group'  => 'staff'
   })
 
-  file { "${homebrew::config::tapsdir}/boxen-brews/${name}.rb":
+  file { "${homebrew::tapsdir}/boxen-brews/${name}.rb":
     source  => $formula_source
   }
 }
