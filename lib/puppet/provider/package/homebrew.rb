@@ -69,14 +69,14 @@ Puppet::Type.type(:package).provide :homebrew, :parent => Puppet::Provider::Pack
       # Okay, so there's a version already active, it's not the right
       # one, and the right one isn't installed. That's an upgrade.
 
-      execute [ "brew", "boxen-upgrade", @resource[:name] ], command_opts
+      execute [ "brew", "upgrade", @resource[:name] ], command_opts
     else
       # Nothing here? Nothing from before? Yay! It's a normal install.
 
       if install_options.any?
         execute [ "brew", "install", @resource[:name], *install_options ].flatten, command_opts
       else
-        execute [ "brew", "boxen-install", @resource[:name] ], command_opts
+        execute [ "brew", "install", @resource[:name] ], command_opts
       end
 
     end
